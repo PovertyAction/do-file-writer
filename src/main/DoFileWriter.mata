@@ -14,8 +14,7 @@ class `DoFileWriter' {
 		// If 1, add debugging information to the do-file as comments; 0
 		// otherwise.
 		`RS' debug
-		// If 1, use naive rules (sufficient for -odkmeta-) to determine the
-		// indent setting; 0 otherwise.
+		// If 1, use naive rules to determine the indent setting; 0 otherwise.
 		`RS' autotab
 		`RS' fh
 		// The indent setting of the current line
@@ -44,7 +43,10 @@ class `DoFileWriter' {
 		`SS' delim
 		// The start of the current line
 		`SS' linestart
+
 		void new(), new_do_file()
+
+		static `SS' tab()
 
 		// Line parsing functions
 		// These take the current line as an argument, assuming that it is
@@ -105,6 +107,9 @@ void `DoFileWriter'::indent(|`RS' tabchange)
 	else
 		tab++
 }
+
+`SS' `DoFileWriter'::tab(|`RS' n)
+	return(char(9) * (args() > 0 ? n : 1))
 
 // Returns the command (the first word) of a line.
 `SS' `DoFileWriter'::command(`SS' line)
@@ -216,8 +221,8 @@ void `DoFileWriter'::put(`SS' line)
 		fwrite(fh, sprintf("comment = %f, ", comment))
 		fwrite(fh, sprintf("joinline = %f, ", joinline))
 		fwrite(fh, sprintf("lastjoin = %f, ", lastjoin))
-		fwrite(fh, sprintf("delim = %s, ", adorn_quotes(delim)))
-		fwrite(fh, sprintf("linestart = %s, ", adorn_quotes(linestart)))
+		fwrite(fh, sprintf("delim = %s, ", delim))
+		fwrite(fh, sprintf("linestart = %s, ", linestart))
 		fwrite(fh, sprintf("open_block() = %f, ", open_block(trim)))
 		fwrite(fh, sprintf("close_block() = %f", close_block(trim)))
 		fput(fh, " */")
