@@ -1,0 +1,22 @@
+*** Project Mata ***
+
+[cons]
+	True = 1
+	False = 0
+
+[type]
+	C = complex
+	N = numeric
+	R = real
+	S = string
+	T = transmorphic
+
+	Boolean = real
+	FileHandle = real
+	LclName = string
+	Name = string
+
+*** DoFileWriter ***
+
+[type]
+	DoFileWriter = class poverty_action_do_file_writer
