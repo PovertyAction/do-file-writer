@@ -101,4 +101,4 @@ df.put("}")
 Installation
 ------------
 
-`DoFileWriter` uses [Project Mata](https://github.com/PovertyAction/project-mata). Include it in your Project Mata project by adding it to `src` and updating `.matamac`.
+`DoFileWriter` uses [Project Mata](https://github.com/PovertyAction/project-mata).
