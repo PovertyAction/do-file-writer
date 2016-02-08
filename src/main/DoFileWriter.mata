@@ -176,7 +176,7 @@ void `DoFileWriter'::change_comment(`SS' line)
 void `DoFileWriter'::write(`SS' s)
 	linestart = linestart + s
 
-void `DoFileWriter'::put(`SS' line)
+void `DoFileWriter'::put(|`SS' line)
 {
 	// "ws" for "white space"
 	`RS' ws
